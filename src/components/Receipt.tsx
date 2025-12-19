@@ -6,11 +6,11 @@ const Receipt: Component = () => {
   const [loading, setLoading] = createSignal(true)
 
   onMount(() => {
-    // localStorage se data retrieve karo
+    
     const stored = localStorage.getItem('paymentReceipt')
     
     if (!stored) {
-      // Agar data nahi mila, form page pe redirect karo
+      
       window.location.href = "/"
       return
     }
@@ -27,7 +27,6 @@ const Receipt: Component = () => {
   })
 
   const handleNewPayment = () => {
-    // Clear localStorage and redirect
     localStorage.removeItem('paymentReceipt')
     window.location.href = "/"
   }

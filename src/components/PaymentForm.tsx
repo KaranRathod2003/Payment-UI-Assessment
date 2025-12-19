@@ -17,12 +17,12 @@ const PaymentForm: Component = () => {
   function validateForm(): boolean {
     const newErrors: ValidationErrors = {}
 
-    // Name validation
+    
     if (!form().name.trim()) {
       newErrors.name = "Name is required"
     }
 
-    // Card number validation (16 digits)
+    
     const cardNum = form().cardNumber.replace(/\s/g, "")
     if (!cardNum) {
       newErrors.cardNumber = "Card number is required"
@@ -30,21 +30,21 @@ const PaymentForm: Component = () => {
       newErrors.cardNumber = "Card number must be 16 digits"
     }
 
-    // Expiry date validation (MM/YY format)
+    
     if (!form().expiryDate.trim()) {
       newErrors.expiryDate = "Expiry date is required"
     } else if (!/^\d{2}\/\d{2}$/.test(form().expiryDate)) {
       newErrors.expiryDate = "Format must be MM/YY"
     }
 
-    // CVV validation (3 digits)
+    
     if (!form().cvv.trim()) {
       newErrors.cvv = "CVV is required"
     } else if (form().cvv.length !== 3 || !/^\d+$/.test(form().cvv)) {
       newErrors.cvv = "CVV must be 3 digits"
     }
 
-    // Amount validation
+    
     if (form().amount <= 0) {
       newErrors.amount = "Amount must be greater than 0"
     }
@@ -60,7 +60,7 @@ const PaymentForm: Component = () => {
 
     setIsSubmitting(true)
 
-    // Receipt data prepare karo
+    
     const receipt = {
       name: form().name,
       cardNumber: form().cardNumber,
@@ -73,10 +73,10 @@ const PaymentForm: Component = () => {
       timestamp: new Date().toISOString()
     }
 
-    // localStorage mein save karo
+    
     localStorage.setItem('paymentReceipt', JSON.stringify(receipt))
     
-    // Small delay for better UX (optional)
+    
     setTimeout(() => {
       window.location.href = "/receipt"
     }, 500)
@@ -100,7 +100,7 @@ const PaymentForm: Component = () => {
           </label>
           <input
             type="text"
-            placeholder="John Doe"
+            placeholder="User 1"
             class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
             value={form().name}
             onInput={(e) => setForm({ ...form(), name: e.currentTarget.value })}
@@ -117,7 +117,7 @@ const PaymentForm: Component = () => {
           </label>
           <input
             type="text"
-            placeholder="1234 5678 9012 3456"
+            placeholder="0000 0000 0000 0000"
             maxLength={19}
             class="w-full border border-gray-300 px-4 py-3 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition"
             value={form().cardNumber}
