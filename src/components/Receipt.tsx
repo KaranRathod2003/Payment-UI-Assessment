@@ -1,36 +1,3 @@
-// import { type Component, Show, createEffect } from "solid-js"
-// import { receiptData } from "../stores/paymentStore"
-
-// const Receipt: Component = () => {
-
-//   createEffect(() => {
-//     if (!receiptData.transactionId) {
-//       window.location.href = "/"
-//     }
-//   })
-
-//   return (
-//     <Show when={receiptData.transactionId}>
-//       <div class="max-w-md mx-auto bg-white p-6 rounded shadow space-y-3">
-//         <h2 class="text-2xl font-bold text-center">Payment Successful</h2>
-
-//         <p><strong>Name:</strong> {receiptData.name}</p>
-//         <p><strong>Card:</strong> {receiptData.maskedCard}</p>
-//         <p><strong>Expiry:</strong> {receiptData.expiryDate}</p>
-//         <p><strong>Amount:</strong> ₹{receiptData.amount}</p>
-//         <p><strong>Status:</strong> {receiptData.status}</p>
-//         <p><strong>Transaction ID:</strong> {receiptData.transactionId}</p>
-
-//         <p class="text-xs text-gray-500">
-//           {receiptData.timestamp}
-//         </p>
-//       </div>
-//     </Show>
-//   )
-// }
-
-// export default Receipt
-
 import { type Component, Show, createSignal, onMount } from "solid-js"
 import type { ReceiptData } from "../types/payment"
 
