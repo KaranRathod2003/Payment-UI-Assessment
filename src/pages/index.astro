@@ -1,9 +1,16 @@
 ---
-import PaymentForm from "../components/PaymentForm.tsx"
+import PaymentForm from "../components/PaymentForm"
+import "../styles/global.css"
 ---
 
-<main class="min-h-screen flex items-center justify-center bg-gray-100">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Payment Gateway</title>
+</head>
+<body>
   <PaymentForm client:load />
-</main>
-
-
+</body>
+</html>
